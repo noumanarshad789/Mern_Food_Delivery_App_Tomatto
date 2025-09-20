@@ -2,12 +2,25 @@ import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/assets';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
 
-  const { cartItems, food_list, removeFromCart } = useContext(StoreContext);
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+  const navigate = useNavigate();
 
+  const isCartEmpty = getTotalCartAmount() === 0;
+
+  if (isCartEmpty) {
+    return (
+      <div className="cart-empty">
+        <h2>Your Cart is Empty 🛒</h2>
+        <p>Looks like you haven’t added anything yet.</p>
+        <button onClick={() => navigate("/")}>Return to Home</button>
+      </div>
+    );
+  }
   return (
     <div className='cart'>
       <div className="cart-items">
@@ -48,7 +61,7 @@ const Cart = () => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${0}</p>
+              <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-total-details">
@@ -58,7 +71,7 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Total</p>
-              <p>${0}</p>
+              <p>${getTotalCartAmount() + 2}</p>
             </div>
             <hr />
           </div>
