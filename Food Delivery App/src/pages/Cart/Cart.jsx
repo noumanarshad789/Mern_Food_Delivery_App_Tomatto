@@ -10,7 +10,7 @@ const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
   const navigate = useNavigate();
 
-  const isCartEmpty = getTotalCartAmount() === 0;
+  const isCartEmpty = getTotalCartAmount() <= 2;
 
   if (isCartEmpty) {
     return (
@@ -75,7 +75,7 @@ const Cart = () => {
             </div>
             <hr />
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={()=>navigate("/order")}>PROCEED TO CHECKOUT</button>
         </div>
 
         <div className="cart-promocode">
