@@ -2,7 +2,9 @@ import foodModel from "../models/foodModdle.js";
 import fs from "fs"
 // fs == file system
 
-// add food items
+
+
+// 1. add food items
 
 const addFood = async (req, res) => {
 
@@ -26,7 +28,7 @@ const addFood = async (req, res) => {
 
 }
 
-// all food items list
+// 2. all food items list
 const listFood = async (req, res) => {
     try {
         const foods = await foodModel.find({})
@@ -38,7 +40,7 @@ const listFood = async (req, res) => {
     }
 }
 
-// remove food item
+// 3. remove food item
 const removeFood = async (req, res) => {
     try {
         const food = await foodModel.findById(req.body.id)

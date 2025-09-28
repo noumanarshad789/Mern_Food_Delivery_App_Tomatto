@@ -1,6 +1,5 @@
 import express from "express"
 import { addFood, listFood, removeFood } from "../controllers/foodController.js"
-import { addFood, listFood } from "../controllers/foodController.js"
 import multer from "multer"
 
 
@@ -11,7 +10,7 @@ foodRouter.post("/add", addFood)
 const storage = multer.diskStorage({
     destination: "uploads",
     filename: (req, res, cb) => {
-        return cb(null, `S{Date.now()}${file.originalname}`)
+        return cb(null, `${Date.now()}${file.originalname}`)
     }
 })
 
