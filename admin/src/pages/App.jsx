@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import { Routes, Route } from "react-router-dom"
 import Add from './Add/Add'
 import List from './List/List'
-import Order from './Order/Order'
+import Orders from './Orders/Orders'
 
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path='/add' element={<Add />} />
           <Route path='/list' element={<List />} />
-          <Route path='/order' element={<Order />} />
+          <Route path='/order' element={<Orders />} />
         </Routes>
       </div>
 

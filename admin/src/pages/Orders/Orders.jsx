@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Order.css"
+import "./Orders.css"
 
-const Order = () => {
+const Orders = () => {
   return (
     <div>
-      
+      <h1>Orders</h1>
     </div>
   )
 }
 
-export default Order
+export default Orders
