@@ -4,8 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 
-const List = () => {
-  const backend_URL = "http://localhost:4000"
+const List = ({backend_URL}) => {
   const [list, setList] = useState([])
 
   const fetchList = async () => {

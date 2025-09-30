@@ -1,4 +1,4 @@
-import foodModel from "../models/foodModdle.js";
+import foodModel from "../models/foodModle.js";
 import fs from "fs"
 // fs == file system
 
