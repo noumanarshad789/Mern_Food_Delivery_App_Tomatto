@@ -40,7 +40,7 @@ const Add = () => {
     if (response.data.success) {
       setData({
         name: "",
-        description: "",
+        // description: "",
         price: "",
         category: "Salad"
       })
