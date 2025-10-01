@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../context/StoreContext';
-import { assets } from '../../assets/assets';
 import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
 
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+  const { cartItems, foodList, removeFromCart, getTotalCartAmount, backend_URL } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const isCartEmpty = getTotalCartAmount() <= 2;
@@ -36,12 +35,12 @@ const Cart = () => {
         <hr />
 
         {
-          food_list.map((item, index) => {
+          foodList.map((item, index) => {
             if (cartItems[item._id] > 0) {
               return (
                 <>
                   <div className="cart-items-title cart-items-item">
-                    <img src={item.image} alt="" />
+                    <img src={backend_URL + "/images/" + item.image} alt="" />
                     <p>{item.name}</p>
                     <p>${item.price}</p>
                     <p>{cartItems[item._id]}</p>
@@ -75,7 +74,7 @@ const Cart = () => {
             </div>
             <hr />
           </div>
-          <button onClick={()=>navigate("/order")}>PROCEED TO CHECKOUT</button>
+          <button onClick={() => navigate("/order")}>PROCEED TO CHECKOUT</button>
         </div>
 
         <div className="cart-promocode">
